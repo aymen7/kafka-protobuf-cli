@@ -8,6 +8,9 @@ import java.io.IOException;
 
 public class JsonToProtobufConverter {
 
+    private JsonToProtobufConverter() {
+    }
+
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public static PersonOuterClass.Person fromJsonFile(File file) throws IOException {

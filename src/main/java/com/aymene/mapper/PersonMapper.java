@@ -4,6 +4,8 @@ import com.aymene.model.dto.PersonDto;
 import com.aymene.protobuf.PersonOuterClass.Person;
 
 public class PersonMapper {
+    private PersonMapper() {
+    }
 
     public static Person toProtobuf(PersonDto dto) {
         Person.Builder builder = Person.newBuilder()

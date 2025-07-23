@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 public class KafkaProtobufProducer implements AutoCloseable {
@@ -24,13 +26,13 @@ public class KafkaProtobufProducer implements AutoCloseable {
         this.producer = KafkaProducerConfig.createProducer(bootstrapServers);
     }
 
-    public void send(PersonOuterClass.Person person) throws Exception {
-        ProducerRecord<String, byte[]> record = new ProducerRecord<>(
+    public void send(PersonOuterClass.Person person) throws InterruptedException, ExecutionException {
+        ProducerRecord<String, byte[]> producerRecord = new ProducerRecord<>(
                 topic,
                 String.valueOf(person.getId()),
                 person.toByteArray()
         );
-        Future<RecordMetadata> future = producer.send(record);
+        Future<RecordMetadata> future = producer.send(producerRecord);
         RecordMetadata metadata = future.get();
 
         logger.info("Message sent to topic {} partition {} offset {}",
@@ -44,7 +46,7 @@ public class KafkaProtobufProducer implements AutoCloseable {
         }
     }
 
-    public void sendMessageFromJsonFile(String jsonFilePath) throws Exception {
+    public void sendMessageFromJsonFile(String jsonFilePath) throws IOException, InterruptedException, ExecutionException {
         File jsonFile = new File(jsonFilePath);
         PersonOuterClass.Person person = JsonToProtobufConverter.fromJsonFile(jsonFile);
         send(person);

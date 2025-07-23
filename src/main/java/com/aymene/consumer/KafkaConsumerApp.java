@@ -34,9 +34,9 @@ public class KafkaConsumerApp implements AutoCloseable {
 
         while (running) {
             ConsumerRecords<String, byte[]> records = consumer.poll(Duration.ofMillis(1000));
-            for (ConsumerRecord<String, byte[]> record : records) {
-                logger.info("Received message at offset {} partition {}:", record.offset(), record.partition());
-                printMessage(record.value());
+            for (ConsumerRecord<String, byte[]> consumerRecord : records) {
+                logger.info("Received message at offset {} partition {}:", consumerRecord.offset(), consumerRecord.partition());
+                printMessage(consumerRecord.value());
             }
         }
     }

@@ -23,9 +23,9 @@ public class KafkaConsumerService implements AutoCloseable {
 
     public void pollAndPrint(int timeoutMs) {
         ConsumerRecords<String, byte[]> records = consumer.poll(Duration.ofMillis(timeoutMs));
-        for (ConsumerRecord<String, byte[]> record : records) {
+        for (ConsumerRecord<String, byte[]> consumerRecord : records) {
             try {
-                Person person = Person.parseFrom(record.value());
+                Person person = Person.parseFrom(consumerRecord.value());
                 logger.info("----- Received Person -----");
                 logger.info("Name: {}", person.getName());
                 logger.info("Id: {}", person.getId());
