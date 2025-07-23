@@ -1,0 +1,95 @@
+Listado de rutas de carpetas para el volumen Windows-SSD
+El número de serie del volumen es 10AB-EC87
+C:.
+¦   .gitignore
+¦   kafka-protobuf-cli.iml
+¦   pom.xml
+¦   structure.txt
+¦   
++---.idea
+¦       compiler.xml
+¦       dbnavigator.xml
+¦       encodings.xml
+¦       git_toolbox_blame.xml
+¦       jarRepositories.xml
+¦       misc.xml
+¦       modules.xml
+¦       vcs.xml
+¦       workspace.xml
+¦       
++---docker
+¦       docker-compose.yml
+¦       
++---src
+¦   +---main
+¦   ¦   +---java
+¦   ¦   ¦   +---org
+¦   ¦   ¦       +---example
+¦   ¦   ¦           ¦   JsonToProtobufConverter.java
+¦   ¦   ¦           ¦   KafkaProtobufProducer.java
+¦   ¦   ¦           ¦   Main.java
+¦   ¦   ¦           ¦   
+¦   ¦   ¦           +---dto
+¦   ¦   ¦           ¦       PersonDto.java
+¦   ¦   ¦           ¦       
+¦   ¦   ¦           +---mapper
+¦   ¦   ¦                   PersonMapper.java
+¦   ¦   ¦                   
+¦   ¦   +---proto
+¦   ¦   ¦       person.proto
+¦   ¦   ¦       
+¦   ¦   +---resources
+¦   ¦           person.json
+¦   ¦           
+¦   +---test
+¦       +---java
++---target
+    +---classes
+    ¦   ¦   person.proto
+    ¦   ¦   
+    ¦   +---org
+    ¦       +---example
+    ¦           ¦   Main.class
+    ¦           ¦   
+    ¦           +---protobuf
+    ¦                   PersonOuterClass$Person$1.class
+    ¦                   PersonOuterClass$Person$Builder.class
+    ¦                   PersonOuterClass$Person.class
+    ¦                   PersonOuterClass$PersonOrBuilder.class
+    ¦                   PersonOuterClass.class
+    ¦                   
+    +---generated-sources
+    ¦   +---annotations
+    ¦   +---protobuf
+    ¦       +---java
+    ¦           +---org
+    ¦               +---example
+    ¦                   +---protobuf
+    ¦                           PersonOuterClass.java
+    ¦                           
+    +---maven-status
+    ¦   +---maven-compiler-plugin
+    ¦       +---compile
+    ¦           +---default-compile
+    ¦                   createdFiles.lst
+    ¦                   inputFiles.lst
+    ¦                   
+    +---protoc-dependencies
+    ¦   +---5dda6ee1fc2a16b3705e2a30fb30ff81
+    ¦       +---google
+    ¦           +---protobuf
+    ¦                   any.proto
+    ¦                   api.proto
+    ¦                   descriptor.proto
+    ¦                   duration.proto
+    ¦                   empty.proto
+    ¦                   field_mask.proto
+    ¦                   source_context.proto
+    ¦                   struct.proto
+    ¦                   timestamp.proto
+    ¦                   type.proto
+    ¦                   wrappers.proto
+    ¦                   
+    +---protoc-plugins
+            protoc-3.25.1-windows-x86_64.exe
+            
